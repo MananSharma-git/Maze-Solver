@@ -1,0 +1,65 @@
+package mazeSolver;
+
+import java.util.List;
+
+public class solve {
+	
+	public static boolean search(int[][] maze,int x,int y,List<Integer> path) {
+		
+		if(maze[x][y]==9) {
+			path.add(x);
+			path.add(y);
+			
+			return true;
+		}
+		
+		if(maze[x][y]==0) {
+			maze[x][y]=2;
+			int dx=0,dy=0;
+			
+			dx=0;
+			dy=1;
+			
+			if(search(maze,x+dx,y+dy,path)) {
+				path.add(x);
+				path.add(y);
+				
+				return true;
+			}
+			
+			dx=-1;
+			dy=0;
+			
+			if(search(maze,x+dx,y+dy,path)) {
+				path.add(x);
+				path.add(y);
+				
+				return true;
+			}
+			
+			dx=0;
+			dy=-1;
+			
+			if(search(maze,x+dx,y+dy,path)) {
+				path.add(x);
+				path.add(y);
+				
+				return true;
+			}
+			
+			dx=1;
+			dy=0;
+			
+			if(search(maze,x+dx,y+dy,path)) {
+				path.add(x);
+				path.add(y);
+				
+				return true;
+			}
+					
+		}
+		
+		return false;
+	}
+
+}
